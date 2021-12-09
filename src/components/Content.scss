@@ -1,0 +1,35 @@
+/** @format */
+
+#content {
+	position: relative;
+	padding: 30px;
+	border-left: 1px solid rgb(212, 212, 212);
+	border-right: 1px solid rgb(212, 212, 212);
+	background-color: #fff;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	.skeletondiv {
+		position: relative;
+		margin: 10px 0;
+		.dual {
+			display: grid;
+			grid-template-columns: 70% 30%;
+			gap: 0px;
+			width: 100%;
+			overflow: hidden;
+			padding: 20px;
+			box-sizing: border-box;
+			gap: 10px;
+			position: absolute;
+			top: 0;
+		}
+		.skepara {
+			display: grid;
+			position: absolute;
+			width: 100%;
+			padding: 20px;
+			top: 50px;
+		}
+	}
+}

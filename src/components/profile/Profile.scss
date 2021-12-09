@@ -1,0 +1,15 @@
+/** @format */
+#profile {
+	text-align: center;
+	.userName {
+		color: #2a2d2c;
+	}
+	.imageContainer {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 10px;
+		img {
+			border-radius: 100px;
+		}
+	}
+}

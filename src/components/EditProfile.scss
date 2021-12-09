@@ -1,0 +1,50 @@
+/** @format */
+
+#editprofile {
+	position: relative;
+	padding: 30px;
+	border-left: 1px solid rgb(212, 212, 212);
+	border-right: 1px solid rgb(212, 212, 212);
+	background-color: #fff;
+	height: 100vh;
+	// overflow-x: hidden;
+	// overflow-y: scroll;
+	.header {
+		display: flex;
+		gap: 20px;
+		align-items: center;
+		margin-bottom: 50px;
+	}
+	.back {
+		cursor: pointer;
+		display: inline-flex;
+		border-radius: 50px;
+		height: 40px;
+		width: 40px;
+		padding: 10px;
+		transition: 0.3s ease-in-out;
+		&:hover {
+			background: rgb(201, 201, 201);
+		}
+	}
+	.main {
+		form {
+			text-align: center;
+			.displaynone {
+				display: none;
+			}
+			label[for='Profile'] > div {
+				margin-bottom: 30px;
+			}
+			.dualInput {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 20px;
+				margin-bottom: 10px;
+			}
+			button {
+				margin-top: 10px;
+			}
+		}
+	}
+}

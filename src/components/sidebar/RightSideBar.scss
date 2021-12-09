@@ -1,0 +1,28 @@
+/** @format */
+
+#right-sidebar {
+	padding: 30px;
+	backdrop-filter: blur(40px);
+	color: #000;
+	font-weight: 600;
+	& > div {
+		margin-bottom: 30px;
+	}
+	.recom {
+		background-color: azure;
+		padding: 10px;
+		border-radius: 10px;
+		display: flex;
+		gap: 10px;
+		margin-bottom: 20px;
+		cursor: pointer;
+		h4 {
+			align-self: center;
+		}
+		img {
+			width: 50px;
+			height: 50px;
+			border-radius: 50px;
+		}
+	}
+}

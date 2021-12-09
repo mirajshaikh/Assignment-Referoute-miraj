@@ -1,0 +1,36 @@
+/** @format */
+
+#posts {
+	margin: 10px 0;
+	padding: 15px;
+	border-radius: 10px;
+	border: 1px solid rgb(214, 214, 214);
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+	.postitems {
+		.titleandtime {
+			display: grid;
+			grid-template-columns: 1fr 190px;
+			justify-content: space-between;
+			.titleContainer {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				h3 {
+					overflow: hidden;
+					font-weight: 600;
+					text-overflow: ellipsis;
+				}
+			}
+			.likeContainer {
+				justify-self: flex-end;
+				display: flex;
+				gap: 20px;
+				& div > :hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

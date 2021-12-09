@@ -1,0 +1,53 @@
+/** @format */
+
+$mainColor: rgb(8, 204, 122);
+
+#Header {
+	z-index: 99;
+	padding: 20px;
+	position: sticky;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.37);
+	backdrop-filter: blur(5px);
+	box-shadow: 1px 0 10px 1px rgb(114, 114, 114);
+	.flex {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.logo {
+			font-weight: 600;
+			color: $mainColor;
+			font-size: 25px;
+		}
+
+		.navmenu ul {
+			display: flex;
+			list-style: none;
+
+			li {
+				position: relative;
+				margin: 0 20px;
+				font-weight: 600;
+				transition: all 0.4s ease-in-out;
+				&::before {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					height: 2px;
+					background-color: $mainColor;
+					width: 0%;
+					transition: all 0.4s ease-in-out;
+				}
+				&:hover {
+					transform: scale(1.1);
+					cursor: pointer;
+					color: $mainColor;
+					&::before {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

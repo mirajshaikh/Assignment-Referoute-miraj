@@ -1,0 +1,27 @@
+/** @format */
+
+body {
+	margin: 0;
+	font-family: 'Inter', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	scroll-behavior: smooth;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+#App {
+	position: relative;
+	max-width: 1800px;
+	margin: 0 auto;
+	background-color: rgb(236, 236, 236);
+}

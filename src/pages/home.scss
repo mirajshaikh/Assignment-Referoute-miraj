@@ -1,0 +1,16 @@
+/** @format */
+
+#home {
+	display: grid;
+	position: sticky;
+	top: 200px;
+	grid-template-columns: 25% 50% 25%;
+	gap: 0px;
+	// background-image: url(../images/bg.jpg);
+	background-color: rgb(236, 236, 236);
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: cover;
+	max-width: 1800px;
+	margin: 0 auto;
+}
