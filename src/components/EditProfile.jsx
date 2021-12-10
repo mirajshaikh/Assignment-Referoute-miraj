@@ -44,7 +44,6 @@ const Backdrop = styled.div`
 `;
 
 const baseurl = import.meta.env.VITE_APP_HOST;
-const base = import.meta.env.VITE_APP_IMG;
 function EditProfile({ setEdit, userDetail, getuserDetail }) {
 	const profileRef = useRef(null);
 	const [srcImg, setSrcImg] = useState(null);
@@ -54,7 +53,7 @@ function EditProfile({ setEdit, userDetail, getuserDetail }) {
 	const [userid, setUserid] = useState();
 	const [phone, setPhone] = useState('');
 	const [username, setName] = useState('');
-	const [formattedAdd, setFormattedAdd] = useState([]);
+	const [formattedAdd, setFormattedAdd] = useState();
 	const [emailErr, setEmailErr] = useState(false);
 	//save the image that used to be crop
 	const [image, setImage] = useState(null);
@@ -94,6 +93,7 @@ function EditProfile({ setEdit, userDetail, getuserDetail }) {
 			const base64Image = canvas.toDataURL('image/jpeg', 1);
 			canvas.toBlob(
 				function (blob) {
+					setIsLoading(true);
 					let filename = uuidv4();
 					var formdata = new FormData();
 					formdata.append('files', blob, `${filename}.png`);
@@ -109,6 +109,7 @@ function EditProfile({ setEdit, userDetail, getuserDetail }) {
 						.then((result) => {
 							setProfileImgUrl(result[0].url);
 							profileRef.current.value = '';
+							setIsLoading(false);
 						})
 						.catch((error) => console.log('error', error));
 				},
@@ -232,11 +233,7 @@ function EditProfile({ setEdit, userDetail, getuserDetail }) {
 							{!result ? (
 								<div>
 									<img
-										src={
-											profileImgUrl
-												? `${base}${profileImgUrl}`
-												: Upload
-										}
+										src={profileImgUrl ? `${profileImgUrl}` : Upload}
 										width={90}
 										height={90}
 										alt='Profile image'
@@ -315,7 +312,7 @@ function EditProfile({ setEdit, userDetail, getuserDetail }) {
 						</div>
 						<div
 							onClick={() => {
-								formattedAdd.length ? '' : getLocation();
+								formattedAdd ? '' : getLocation();
 							}}>
 							<TextField
 								id='location'

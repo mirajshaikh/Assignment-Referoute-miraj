@@ -103,8 +103,8 @@ function Login({ setLoggedin, setJwt }) {
 			console.log(error.response);
 			setIsLoading(false);
 			if (
-				error?.response?.data?.error?.message ===
-				'Invalid identifier or password'
+				error?.response?.data.data[0].messages[0].message ===
+				'Identifier or password invalid.'
 			) {
 				setErrMsg('Invalid Username or Password');
 			} else {
@@ -120,6 +120,7 @@ function Login({ setLoggedin, setJwt }) {
 				try {
 					setHasError(false);
 					const res = await axios.post(baseurl + '/auth/local/register', {
+						username: email,
 						name,
 						email,
 						phone,

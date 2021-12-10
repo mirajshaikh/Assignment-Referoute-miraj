@@ -24,7 +24,7 @@ function NewPost({ jwt, getdata }) {
 			event.preventDefault();
 			const data = await axios.post(
 				baseurl + '/posts',
-				{ data: { title, desc, date: dayjs.utc().local().format() } },
+				{ title, desc, date: dayjs.utc().local().format() },
 				{
 					headers: {
 						'Content-Type': 'application/json',

@@ -14,8 +14,8 @@ function Content({ jwt }) {
 	const [isloadingData, setIsLoadingData] = useState(false);
 	async function getdata(time) {
 		setIsLoadingData(true);
-		const data = await axios.get(baseurl + '/posts?sort=id:desc');
-		setPostdata(data.data.data);
+		const data = await axios.get(baseurl + '/posts?_sort=id:DESC');
+		setPostdata(data.data);
 		setTimeout(() => {
 			setIsLoadingData(false);
 		}, time);
@@ -165,9 +165,9 @@ function Content({ jwt }) {
 				postdata.map((post, index) => {
 					return (
 						<Posts
-							title={post?.attributes?.title}
-							desc={post?.attributes?.desc}
-							date={post?.attributes?.date}
+							title={post?.title}
+							desc={post?.desc}
+							date={post?.date}
 							key={index}
 						/>
 					);

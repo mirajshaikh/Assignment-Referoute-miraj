@@ -4,16 +4,13 @@
 import React from 'react';
 import ProfileImg from '../../images/default.png';
 import './Profile.scss';
-const base = import.meta.env.VITE_APP_IMG;
 
 function Profile({ userDetail }) {
 	return (
 		<div id='profile'>
 			<div className='imageContainer'>
 				<img
-					src={
-						userDetail?.image ? `${base}${userDetail?.image}` : ProfileImg
-					}
+					src={userDetail?.image ? `${userDetail?.image}` : ProfileImg}
 					alt=''
 					width='80px'
 				/>
