@@ -62,6 +62,7 @@ function EditProfile({ setEdit, userDetail, getuserDetail }) {
 	//save the resulted image
 	const [result, setResult] = useState(null);
 	const [profileUpdated, setProfileUpdated] = useState(false);
+	const [locationerr, setLocationerr] = useState(false);
 
 	const handleImage = async (event) => {
 		if (event.target.files[0]) {
@@ -135,17 +136,29 @@ function EditProfile({ setEdit, userDetail, getuserDetail }) {
 
 		setProfileUpdated(false);
 	};
+	const handleClosel = (event, reason) => {
+		if (reason === 'clickaway') {
+			return;
+		}
+
+		setLocationerr(false);
+	};
 
 	const [cropModal, setCropModal] = useState(false);
-
+	var options = {
+		enableHighAccuracy: true,
+		timeout: 5000,
+		maximumAge: 0,
+	};
+	function error(err) {
+		console.warn(`ERROR(${err.code}): ${err.message}`);
+		setIsLoading(false);
+		setLocationerr(true);
+	}
 	function getLocation() {
 		if (navigator.geolocation) {
-			try {
-				setIsLoading(true);
-				navigator.geolocation.getCurrentPosition(showPosition);
-			} catch (error) {
-				alert(error);
-			}
+			setIsLoading(true);
+			navigator.geolocation.getCurrentPosition(showPosition, error, options);
 		} else {
 			alert('Geolocation is not supported by this browser.');
 		}
@@ -331,6 +344,9 @@ function EditProfile({ setEdit, userDetail, getuserDetail }) {
 								value={formattedAdd}
 								onChange={(e) => setFormattedAdd(e.target.value)}
 								autoComplete='none'
+								InputLabelProps={{
+									shrink: formattedAdd || isLoading ? true : false,
+								}}
 							/>
 						</div>
 					</div>
@@ -366,6 +382,19 @@ function EditProfile({ setEdit, userDetail, getuserDetail }) {
 						variant='filled'
 						sx={{ width: '100%' }}>
 						Profile Updated Sucessfully
+					</Alert>
+				</Snackbar>
+				<Snackbar
+					open={locationerr}
+					autoHideDuration={4000}
+					onClose={handleClosel}
+					anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+					<Alert
+						onClose={handleClosep}
+						severity='warning'
+						variant='filled'
+						sx={{ width: '100%' }}>
+						Location permission Denied! Unable to auto fetch Location
 					</Alert>
 				</Snackbar>
 				{cropModal && (

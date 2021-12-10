@@ -49,10 +49,15 @@ function NewPost({ jwt, getdata }) {
 				expanded={isexpanded}
 				onChange={() => setIsExpanded(!isexpanded)}>
 				<AccordionSummary
-					expandIcon={<BsPlusLg />}
+					expandIcon={<BsPlusLg color='#fff' />}
+					style={{
+						background: '#3976d2',
+						color: '#fff',
+						borderRadius: '10px 10px 0 0 ',
+					}}
 					aria-controls='panel1a-content'
 					id='panel1a-header'>
-					<p>Create New Post</p>
+					<p>Click Here To Create New Post</p>
 				</AccordionSummary>
 				<AccordionDetails>
 					<div className='postform'>
