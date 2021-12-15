@@ -21,7 +21,7 @@ function Posts({ title, desc, date }) {
 		const date1 = dayjs();
 		const date2 = dayjs(date);
 		date1.diff(date2) > 10025333
-			? setHowLong(dayjs(date).format('DD MMMM YYYY'))
+			? setHowLong(dayjs(date).format('DD MMM YYYY h:mm a'))
 			: setHowLong(dayjs(date).fromNow());
 	}, [date]);
 

@@ -11,7 +11,7 @@
 	.postitems {
 		.titleandtime {
 			display: grid;
-			grid-template-columns: 1fr 190px;
+			grid-template-columns: 1fr 200px;
 			justify-content: space-between;
 			.titleContainer {
 				white-space: nowrap;
@@ -29,6 +29,9 @@
 				gap: 20px;
 				& div > :hover {
 					cursor: pointer;
+				}
+				p {
+					font-size: 13px;
 				}
 			}
 		}
