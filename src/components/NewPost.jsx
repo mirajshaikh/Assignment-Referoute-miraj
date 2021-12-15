@@ -83,11 +83,20 @@ function NewPost({ jwt, getdata }) {
 								fullWidth
 								size='small'
 								multiline
-								rows={2}
+								rows={3}
 								margin='normal'
 								required
-								onChange={(e) => setDesc(e.target.value)}
+								onChange={(e) => {
+									setDesc(e.target.value);
+									console.log(desc.length);
+								}}
 							/>
+							<p
+								className={
+									desc.length > 500 ? 'wordcount red' : 'wordcount'
+								}>
+								{desc.length} / 500
+							</p>
 							{error && (
 								<p style={{ color: 'red', margin: '5px 0px' }}>
 									Error while creating new Post!! Please try again
