@@ -6,7 +6,7 @@ import './Posts.scss';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { AdvReadMoreMore } from 'read-more-more';
+import { ReadMoreMore } from 'read-more-more';
 import utc from 'dayjs/plugin/utc';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TiHeartFullOutline, TiHeartOutline } from 'react-icons/ti';
@@ -54,12 +54,12 @@ function Posts({ title, desc, date }) {
 					</div>
 				</div>
 				<p>
-					<AdvReadMoreMore
-						linesToShow={4}
-						parseHtml
+					<ReadMoreMore
+						// linesToShow={4}
 						text={desc}
 						checkFor={400}
 						fontSize={16}
+						transDuration={2}
 					/>
 				</p>
 				{/* <TextOverflow
